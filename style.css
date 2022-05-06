@@ -7,7 +7,7 @@
 }
 
 :root {
-  --hue: 260;
+  --hue: 190;
 
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
@@ -18,7 +18,7 @@
   --brand-light-2: hsl(calc(var(--hue) + 10), 14%, 97%);
   --brand-services: hsl(180, 14%, 97%);
 
-  --menu-hover-bg: hsl(calc(var(--primary-colo) - 10), 23%, 89%);
+  --hover-btn-state: hsl(var(--hue), 100%, 14%);
   
   font-size: 62.5%; /* 1rem = 10px */
   
@@ -73,6 +73,10 @@ button {
   cursor: pointer;
 }
 
+img {
+  max-width: 100%;
+}
+
 li {
   cursor: pointer;
 }
@@ -121,6 +125,12 @@ section p {
   line-height: 1.8rem;
   text-transform: uppercase;
   color: white;
+
+  transition: 0.2s;
+}
+
+.consult-button:hover {
+  background-color: var(--hover-btn-state);
 }
 
 
@@ -273,7 +283,8 @@ body.menu-expanded .menu {
   font-size: 1.8rem;
   line-height: 2.3rem;
   text-transform: uppercase;
-  color: var(--primary-color);
+  color: white;
+  
   text-decoration: none;
 
   display: inline-block;
@@ -281,7 +292,7 @@ body.menu-expanded .menu {
   padding: 1.3rem 2.9rem;
   margin: 4.8rem 0 8rem;
 
-  background: white;
+  background: var(--primary-color);
 
   border-radius: 4rem;
   border: 3px solid white;
@@ -290,9 +301,9 @@ body.menu-expanded .menu {
 }
 
 .menu .button:hover {
-  background: var(--primary-color);
+  background: white;
 
-  color: white;
+  color: var(--primary-color);
 }
 
 .social-links {
@@ -501,10 +512,6 @@ body.menu-expanded button path {
 
 .contact-content a img {
   height: 2.4rem;
-}
-
-#contact-guy-image {
-  width: 100%;
 }
 
 
@@ -823,7 +830,7 @@ body.menu-expanded button path {
 
 
 
-  /*========= ABOUT ===============*/
+  /*========= CONTACT ===============*/
 
   #contact .container {
     grid-template-columns: 1fr 57.5rem;
@@ -832,9 +839,10 @@ body.menu-expanded button path {
 
   #contact h2 {
     width: 40.4rem;
+    margin-inline: 0;
   }
 
-
+  
 
   /*========= FOOTER ===============*/
 
