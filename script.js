@@ -1,5 +1,4 @@
 const header = document.querySelector('#fixed-header');
-const menu = document.querySelector('.menu');
 
 addEventListener('scroll', onScroll);
 onScroll();
@@ -7,23 +6,38 @@ onScroll();
 function onScroll() {
     showHeaderOnScroll();
     showBackToTopOnScroll();
-    changeBackToTopButtonColor();
 
-    activateMenuAtCurrentSection();
+    activateMenuAtCurrentSection(home);
+    activateMenuAtCurrentSection(services);
+    activateMenuAtCurrentSection(about);
+    activateMenuAtCurrentSection(contact);
 }
 
-function activateMenuAtCurrentSection() {
+function activateMenuAtCurrentSection(section) {
     const targetLine = scrollY + innerHeight / 2;
 
-    const sectionTop = home.offsetTop;
-    const sectionHeight = home.offsetHeight;
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
 
-    console.log(sectionHeight);
-
-    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
-
+    const sectionEndsAt = sectionTop + sectionHeight;
     
+    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
+    const sectionEndPassedTargetLine = sectionEndsAt <= targetLine;
+
+    const sectionBoudaries = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine;
+
+    const sectionId = section.getAttribute('id');
+    const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+    menuElement.classList.remove('active');
+    if (sectionBoudaries) {
+        menuElement.classList.add('active');
+    }
 }
+
+
+
+
 
 function showHeaderOnScroll() {
     scrollY > 0 ? header.classList.add('scroll') : header.classList.remove('scroll');
@@ -31,10 +45,6 @@ function showHeaderOnScroll() {
 
 function showBackToTopOnScroll() {
     scrollY > 500 ? backToTopButton.classList.add('show') : backToTopButton.classList.remove('show');
-}
-
-function changeBackToTopButtonColor() {
-    scrollY > 4089 ?  backToTopButton.classList.add('invert-color') : backToTopButton.classList.remove('invert-color');
 }
 
 function openMenu() {

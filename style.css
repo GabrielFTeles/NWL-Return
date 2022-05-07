@@ -18,6 +18,8 @@
   --brand-light-2: hsl(calc(var(--hue) + 10), 14%, 97%);
   --brand-services: hsl(180, 14%, 97%);
 
+  --back-to-top-color: hsl(calc(var(--hue) + 25), 100%, 26%);
+
   --hover-btn-state: hsl(var(--hue), 100%, 14%);
   
   font-size: 62.5%; /* 1rem = 10px */
@@ -146,15 +148,10 @@ header.scroll .logo path[fill*='#00856F'] {
 }
 
 #backToTopButton circle {
-  fill: var(--primary-color);
+  fill: var(--back-to-top-color);
 }
 
-#backToTopButton.invert-color circle {
-  fill: white;
-}
-
-button.open-menu path[stroke*='#00856F'],
-#backToTopButton.invert-color path {
+button.open-menu path[stroke*='#00856F'] {
   stroke: var(--primary-color);
 }
 
