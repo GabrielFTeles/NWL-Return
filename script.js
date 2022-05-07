@@ -14,27 +14,31 @@ function onScroll() {
 }
 
 function activateMenuAtCurrentSection(section) {
-    const targetLine = scrollY + innerHeight / 2;
+    const targetLine = scrollY + innerHeight / 2
 
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
+    // verificar se a seção passou da linha
+    // quais dados vou precisar?
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
 
-    const sectionEndsAt = sectionTop + sectionHeight;
-    
-    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
-    const sectionEndPassedTargetLine = sectionEndsAt <= targetLine;
+    // verificar se a base está abaixo da linha alvo
 
-    const sectionBoudaries = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine;
+    const sectionEndsAt = sectionTop + sectionHeight
+    const sectionEndPassedTargetline = sectionEndsAt <= targetLine
 
-    const sectionId = section.getAttribute('id');
+    // limites da seção
+    const sectionBoundaries =
+        sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
+
+    const sectionId = section.getAttribute('id')
     const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
 
-    menuElement.classList.remove('active');
-    if (sectionBoudaries) {
-        menuElement.classList.add('active');
+    menuElement.classList.remove('active')
+    if (sectionBoundaries) {
+        menuElement.classList.add('active')
     }
 }
-
 
 
 
