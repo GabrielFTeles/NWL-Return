@@ -248,7 +248,6 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded .menu {
-  position: fixed;
   top: 0;
   left: 0;
   
@@ -273,7 +272,7 @@ body.menu-expanded .menu {
   line-height: 3.1rem;
 }
 
-.menu ul li a {
+.menu nav ul li a {
   text-decoration: none;
   color: white;
 }
@@ -643,7 +642,7 @@ body.menu-expanded button path {
     gap: 3.2rem;
   }
 
-  header#fixed-header .menu ul li a {
+  header#fixed-header .menu nav ul li a {
     color: var(--primary-color);
 
     opacity: 0.7;
@@ -669,7 +668,7 @@ body.menu-expanded button path {
     color: white;
   }
 
-  header#fixed-header.scroll .menu ul li a {
+  header#fixed-header.scroll .menu nav ul li a {
     color: var(--brand-light-2);
 
     opacity: 0.6;
@@ -687,12 +686,14 @@ body.menu-expanded button path {
     color: var(--primary-color);
   }
 
+  header#fixed-header .menu li a.active,
   header#fixed-header .menu li a:hover {
     opacity: 1;
 
     font-weight: 700;
   }
 
+  header#fixed-header .menu li a.active::after,
   header#fixed-header .menu li a::after {
     content: '';
 
@@ -710,6 +711,7 @@ body.menu-expanded button path {
     transition: width 0.3s;
   }
 
+  header#fixed-header .menu li a.active::after,
   header#fixed-header .menu li a:hover::after {
     width: 100%;
     
@@ -720,6 +722,7 @@ body.menu-expanded button path {
     background-color: white;
   }
 
+  header#fixed-header.scroll .menu li a.active,
   header#fixed-header.scroll .menu li a:hover {
     opacity: 1;
   }

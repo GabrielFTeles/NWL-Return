@@ -8,6 +8,21 @@ function onScroll() {
     showHeaderOnScroll();
     showBackToTopOnScroll();
     changeBackToTopButtonColor();
+
+    activateMenuAtCurrentSection();
+}
+
+function activateMenuAtCurrentSection() {
+    const targetLine = scrollY + innerHeight / 2;
+
+    const sectionTop = home.offsetTop;
+    const sectionHeight = home.offsetHeight;
+
+    console.log(sectionHeight);
+
+    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
+
+    
 }
 
 function showHeaderOnScroll() {
